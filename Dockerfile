@@ -1,4 +1,4 @@
-FROM elixir:1.14.4-alpine AS build
+FROM elixir:1.11-alpine AS build
 
 # install build dependencies
 RUN apk add --update --no-cache build-base --update nodejs npm git
@@ -33,8 +33,8 @@ RUN mix phx.digest
 RUN mix do release
 
 # prepare release image
-FROM alpine:3.17.3 AS app
-RUN apk add --no-cache openssl ncurses-libs libstdc++ libgcc
+FROM alpine:3.17 AS app
+RUN apk add --no-cache openssl ncurses-libs libstdc++ libgcc libcrypto1.1 libssl1.1
 
 WORKDIR /app
 
