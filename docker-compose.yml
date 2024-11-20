@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  zcash-explorer:
+    image: emersonian/zcash-explorer:latest
+    container_name: zcash-explorer
+    ports:
+      - "4000:4000"
+    environment:
+      SECRET_KEY_BASE: Lgv/DAAXQXfdde0vS1gLauTecy59ZEAoeTnsgmJs3bZjSOTlHtXQ9nBernHc2DdV
+      EXPLORER_HOSTNAME: http://localhost:4000
+      EXPLORER_SCHEME: http
+      ZCASHD_HOSTNAME: 100.81.13.64
+      ZCASHD_PORT: 10332
+      ZCASHD_USERNAME: example_username
+      ZCASHD_PASSWORD: change_this_password      
+      ZCASH_NETWORK: mainnet
+      # TODO: Test whether the code really needs a lowercase ENV like in Nighthawk's example
+      zcash_network: mainnet
