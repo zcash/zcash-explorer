@@ -39,24 +39,6 @@ explorer_hostname =
     environment variable EXPLORER_HOSTNAME is missing
     """
 
-vk_cpus =
-  System.fetch_env!("VK_CPUS") ||
-    raise """
-    environment variable VK_CPUS is missing
-    """
-
-vk_mem =
-  System.fetch_env!("VK_MEM") ||
-    raise """
-    environment variable VK_MEM is missing
-    """
-
-vk_runnner_image =
-  System.fetch_env!("VK_RUNNER_IMAGE") ||
-    raise """
-    environment variable VK_RUNNER_IMAGE is missing
-    """
-
 zcash_network =
   System.fetch_env!("ZCASH_NETWORK") ||
     raise """
@@ -74,12 +56,11 @@ config :zcash_explorer, ZcashExplorerWeb.Endpoint,
     transport_options: [socket_opts: [:inet6], compress: true]
   ],
   secret_key_base: secret_key_base,
-  # add all the domain names that will be routed to this application ( including TOR Onion Service)
+  # TODO: Make origin hostnames configurable
   check_origin: [
     "http://127.0.0.1:4000",
-    "//zcashblockexplorer.com",
-    "//testnet.zcashblockexplorer.com",
-    "//zcashfgzdzxwiy7yq74uejvo2ykppu4pzgioplcvdnpmc6gcu5k6vwyd.onion"
+    "//explorer.zec.rocks",
+    "//explorer.testnet.zec.rocks"
   ]
 
 config :zcash_explorer, Zcashex,
@@ -87,9 +68,6 @@ config :zcash_explorer, Zcashex,
   zcashd_port: zcashd_port,
   zcashd_username: zcashd_username,
   zcashd_password: zcashd_password,
-  vk_cpus: vk_cpus,
-  vk_mem: vk_mem,
-  vk_runnner_image: vk_runnner_image,
   zcash_network: zcash_network
 
 config :zcash_explorer, ZcashExplorerWeb.Endpoint, server: true
