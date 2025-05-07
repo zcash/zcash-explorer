@@ -23,7 +23,7 @@ RUN npm install --prefix=assets
 
 # should be before running npm deploy
 COPY lib lib
-copy rel rel
+COPY rel rel
 
 COPY priv priv
 COPY assets assets
