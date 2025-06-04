@@ -3,7 +3,7 @@
   "description": " ",
   "license": "MIT",
   "scripts": {
-    "deploy": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=production webpack --mode production",
+    "deploy": "NODE_ENV=production webpack --mode production",
     "watch:css": "./node_modules/.bin/postcss ./css/app.scss -o ./../priv/static/css/app.css -w"
   },
   "dependencies": {

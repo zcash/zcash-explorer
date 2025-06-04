@@ -8,8 +8,6 @@ defmodule ZcashExplorer.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      # ZcashExplorer.Repo,
       # Start the Telemetry supervisor
       ZcashExplorerWeb.Telemetry,
       # Start the PubSub system
