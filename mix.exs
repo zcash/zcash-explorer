@@ -52,7 +52,7 @@ defmodule ZcashExplorer.MixProject do
       {:cachex, "~> 3.3"},
       {:phoenix_live_view, "~> 0.17.9"},
       {:floki, ">= 0.27.0", only: :test},
-      {:zcashex, github: "nighthawk-apps/zcashex"},
+      {:zcashex, github: "zcash/zcashex"},
       {:timex, "~> 3.0"},
       {:sizeable, "~> 1.0"},
       {:eqrcode, "~> 0.1.8"},
